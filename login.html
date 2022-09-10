@@ -29,24 +29,6 @@
   </body>
   <script>
   
-  let xhr = new XMLHttpRequest();
-xhr.open("POST", "https://script.google.com/macros/s/AKfycbzX_IBroTROsmdU_N_ybBXBlctxbZcCLcQc9A_IR_xcQXJSMSUX-uOM0_7rORiMYfZi/exec");
-xhr.setRequestHeader("Accept", "application/json");
-xhr.setRequestHeader("Content-Type", "application/json");
 
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4) {
-    console.log(xhr.status);
-    console.log(xhr.responseText);
-  }};
-
-let data = `{
-  "Id": 78912,
-  "Customer": "Jason Sweet",
-  "Quantity": 1,
-  "Price": 18.00
-}`;
-
-xhr.send(data);
  </script>
 </html>
