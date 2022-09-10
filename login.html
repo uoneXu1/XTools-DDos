@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>XTools Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://uonexu1.github.io/XTools-DDos/style.css">
   </head>
   <body>
     <div class="center">
       <h1>XTools Login</h1>
-      <form>
+      <form action="https://script.google.com/macros/s/AKfycbzsrFkEh5p_IOA_yNY8-0dROtZktnpZfwzUICwrtHqD5YD89Tz28bPfbtH5lG59kjYv/exec" method="POST" target="nm_iframe">
         <div class="txt_field">
-          <input type="text" required>
+          <input name="username" id="user" type="text" required>
           <span></span>
           <label>帳號</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" id="pw" required>
           <span></span>
           <label>密碼</label>
         </div>
@@ -24,11 +24,28 @@
           沒有帳號? <a href="#">註冊會員</a>
         </div>
       </form>
+      <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
     </div>
 
   </body>
-  <script>
-  
 
+  <script>
+
+
+ login.addEventListener('click', () => {
+
+   var user_input = document.getElementById("user").value;
+   var pw_input = document.getElementById("pw").value;
+
+      if(user_input == "" || pw_input==""){
+        alert("請完整輸入帳號密碼!");
+        return;
+      }
+
+       window.open("https://script.google.com/macros/s/AKfycbxpyUmouKJLqbpvT4ud1MoAoRLNv83N-ROto0bls0o/dev");
+       alert("登入成功後 可關閉該頁面");
+
+    });
+	
  </script>
 </html>
